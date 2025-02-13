@@ -1,0 +1,8 @@
+
+.left_line{
+    width: 3px;
+    height: 13px;
+    margin-right: 8px;
+    background:var(--color-components-slider-range);
+    border-radius: 1px;
+}

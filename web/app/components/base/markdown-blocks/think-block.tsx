@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import './style.css'
 
 const hasEndThink = (children: any): boolean => {
   if (typeof children === 'string')
@@ -72,7 +73,7 @@ export const ThinkBlock = ({ children, ...props }: any) => {
     <details {...(!isComplete && { open: true })} className="group">
       <summary className="text-gray-500 font-bold list-none pl-2 flex items-center cursor-pointer select-none whitespace-nowrap">
         <div className="flex-shrink-0 flex items-center">
-          <svg
+          {/* <svg
             className="w-3 h-3 mr-2 transform transition-transform duration-500 group-open:rotate-90"
             fill="none"
             stroke="currentColor"
@@ -84,13 +85,17 @@ export const ThinkBlock = ({ children, ...props }: any) => {
               strokeWidth={2}
               d="M9 5l7 7-7 7"
             />
-          </svg>
+          </svg> */}
+          <div className={'left_line'} />
+          <img src="/logo/think.png" className="w-4 h-4 mr-2" alt="think" />
           {isComplete ? `${t('common.chat.thought')}(${elapsedTime.toFixed(1)}s)` : `${t('common.chat.thinking')}(${elapsedTime.toFixed(1)}s)`}
         </div>
       </summary>
-      <div className="text-gray-500 p-3 ml-2 bg-gray-50 border-l border-gray-300">
-        {displayContent}
-      </div>
+      {displayContent && (
+        <div className="text-gray-500 p-3 ml-2 bg-gray-50 border-l border-blue-300">
+          {displayContent}
+        </div>
+      )}
     </details>
   )
 }
